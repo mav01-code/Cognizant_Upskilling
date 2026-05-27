@@ -1,33 +1,75 @@
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <meta charset = "UTF-8">
-        <title>HTML5</title>
-        <style>
-            #welcomeBanner{
-                background-color: blue;
-            }
-            .highlight{
-                background-color: darkgray;
-            }
-        </style>
-    </head>
-    <body>
-        <!-- Navigation -->
-        <nav>
-            <li><a href = "#home">Home</a></li>
-            <li><a href = "#events">Events</a></li>
-            <li><a href = "#contact">Contact</a></li>
-            <li><a href = "help.html" target = "_blank">Help</a></li>
-        </nav>
-        <section id = "home"></section>
-        <section id = "events"></section>
-        <section id = "contact"></section>
-        <!-- Main -->
-        <div id = "welcomeBanner">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5</title>
+    <style>
+        #welcomeBanner {
+            background-color: blue;
+        }
+
+        .highlight {
+            background-color: darkgray;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="help.html" target="_blank">Help</a></li>
+    </nav>
+    <section id="home">
+        <div id="welcomeBanner">
             <p><span style="color: red; font-weight: bold;">Special Offer</span></p>
-            <div class = "highlight">Certain elements for visual analysis</div>
+            <div class="highlight">Certain elements for visual analysis</div>
         </div>
-        <!-- Footer -->
-    </body>
+    </section>
+    <section id="events">
+        <table>
+            <caption>Events</caption>
+            <tr>
+                <td>
+                    <img src="Event1.png" alt="Ugadi Picture" title="Ugadi Event" style="height: 300px; width: 100%;" />
+                    <p>Ugadi</p>
+                </td>
+                <td>
+                    <img src="Event2.png" alt="Sankranthi Picture" title="Sankranthi Event"
+                        style="height: 300px; width: 100%;" />
+                    <p>Sankranthi</p>
+                </td>
+                <td>
+                    <img src="Event3.png" alt="Rama Navami Picture" title="Rama Navami Event"
+                        style="height: 300px; width: 100%;" />
+                    <p>Sri Rama Navami</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src=" Event4.png" alt="Vinayaka Chavithi Picture" title="Chavithi Event"
+                        style="height: 300px; width: 100%;" />
+                    <p>Vinayaka Chavithi</p>
+                </td>
+                <td>
+                    <img src="Event5.png" alt="Navratri Picture" title="Navratri Event"
+                        style="height: 300px; width: 100%;" />
+                    <p>Navratri</p>
+                </td>
+                <td>
+                    <img src="Event6.png" alt="Diwali Picture" title="Diwali Event"
+                        style="height: 300px; width: 100%;" />
+                    <p>Deepawali</p>
+                </td>
+            </tr>
+        </table>
+    </section>
+    <section id="contact"></section>
+    <!-- Main -->
+    <!-- Footer -->
+</body>
+
 </html>
