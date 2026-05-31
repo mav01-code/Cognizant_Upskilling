@@ -87,9 +87,63 @@
         <button type="submit">Submit</button><br>
         <output>Submitted</output>
     </form>
+    <h3>Feedback Form</h3>
+    <form>
+    <label>Phone number: </label>
+    <input id = "phone" type = "text" onblur="validatePhone()"/><br>
+    <label>Event Type: </label>
+    <select id = "eventType" onchange="showFee()">
+        <option>Festival</option>
+        <option>Birthday</option>
+        <option>Anniversary</option>
+    </select><br>
+    <p id = "fee"></p>
+    <br>
+    <label>Feedback: </label>
+    <textarea id = "feedback" onkeyup="countCharacters()"></textarea><br>
+    <p>Characters: <span id = "count">0</span></p>    
+    <br>
+    <button type="button" onclick="showConfirmation()">Submit</button>
+    <output id = "output"></output>
+</form>
+<img src = "Event1.png" id = "eventImg" ondblclick="enlargeImg()"/>
     <section id="contact"></section>
     <!-- Main -->
     <!-- Footer -->
 </body>
 
+<script>
+    function validatePhone(){
+        let phone = document.getElementById("phone").value;
+        if(phone.length == 10){
+            alert("Valid phone number");
+        }
+        else{
+            alert("Invalid phone number");
+        }
+    }
+    function showFee(){
+        let eventType = document.getElementById("eventType").value;
+        let fee = document.getElementById("fee");
+        if(eventType == "Festival"){
+            fee.innerHTML = "Fee: 100";
+        }
+        else if(eventType == "Birthday"){
+            fee.innerHTML = "Fee: 150";
+        }
+        else{
+            fee.innerHTML = "Fee: 200";
+        }
+    }
+    function countCharacters(){
+        let feedback = document.getElementById("feedback").value;
+        document.getElementById("count").innerHTML = feedback.length;
+    }
+    function showConfirmation(){
+        document.getElementById("output").innerHTML = "Feedback submitted successfully";
+    }
+    function enlargeImg(){
+        document.getElementById("eventImg").style.width = "1000px";
+    }
+</script>
 </html>
