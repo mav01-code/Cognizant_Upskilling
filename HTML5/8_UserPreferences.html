@@ -1,0 +1,26 @@
+<select id = "eventType" onchange="savePreferences(); showFee()">
+    <option>Festival</option>
+    <option>Birthday</option>
+    <option>Anniversary</option>
+    <option>Marriage</option>
+</select>
+
+<button type = "button" onclick="clearPreferences()">Clear Preferences</button>
+
+<script>
+    function savePreferences(){
+        let eventType = document.getElementsById("eventType").value;
+        localStorage.setItem("preferredEvent", eventType);
+    }
+    window.onload = function(){
+        let saved = localStorage.getItem("preferredEvent");
+        if(savedEvent){
+            document.getElementById("eventType").value = savedEvent;
+        }
+    };
+    function clearPreferences(){
+        localStorage.clear();
+        sessionStorage.clear();
+        alert("Preferences cleared");
+    }
+</script>

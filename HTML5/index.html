@@ -92,11 +92,12 @@
         <label>Phone number: </label>
         <input id = "phone" type = "text" onblur="validatePhone()"/><br>
         <label>Event Type: </label>
-        <select id = "eventType" onchange="showFee()">
+        <select id = "eventType" onchange="savePreferences(); showFee();">
             <option>Festival</option>
             <option>Birthday</option>
             <option>Anniversary</option>
         </select><br>
+        <button type = "button" onclick="clearPreferences()">Clear Preferences</button>
         <p id = "fee"></p>
         <br>
         <label>Feedback: </label>
@@ -162,6 +163,21 @@
             e.preventDefault();
             e.returnValue = "";
         }
+    }
+    function savePreferences(){
+        let eventType = document.getElementsById("eventType").value;
+        localStorage.setItem("preferredEvent", eventType);
+    }
+    window.onload = function(){
+        let saved = localStorage.getItem("preferredEvent");
+        if(savedEvent){
+            document.getElementById("eventType").value = savedEvent;
+        }
+    };
+    function clearPreferences(){
+        localStorage.clear();
+        sessionStorage.clear();
+        alert("Preferences cleared");
     }
 </script>
 </html>
