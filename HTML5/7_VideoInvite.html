@@ -1,0 +1,17 @@
+<video id = "video" width="500" controls>
+    <source src = "Video.mp4" type="video/mp4">
+</video>
+<p id = "message"></p>
+
+<script>
+    const video = document.getElementById("video");
+    video.oncanplay = function(){
+        document.getElementById("message").textContent = "Video ready to play";
+    };
+    window.onbeforeunload = function(e){
+        if(!formSubmission){
+            e.preventDefault();
+            e.returnValue = "";
+        }
+    }
+</script>

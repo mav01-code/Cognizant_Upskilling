@@ -89,24 +89,29 @@
     </form>
     <h3>Feedback Form</h3>
     <form>
-    <label>Phone number: </label>
-    <input id = "phone" type = "text" onblur="validatePhone()"/><br>
-    <label>Event Type: </label>
-    <select id = "eventType" onchange="showFee()">
-        <option>Festival</option>
-        <option>Birthday</option>
-        <option>Anniversary</option>
-    </select><br>
-    <p id = "fee"></p>
-    <br>
-    <label>Feedback: </label>
-    <textarea id = "feedback" onkeyup="countCharacters()"></textarea><br>
-    <p>Characters: <span id = "count">0</span></p>    
-    <br>
-    <button type="button" onclick="showConfirmation()">Submit</button>
-    <output id = "output"></output>
-</form>
-<img src = "Event1.png" id = "eventImg" ondblclick="enlargeImg()"/>
+        <label>Phone number: </label>
+        <input id = "phone" type = "text" onblur="validatePhone()"/><br>
+        <label>Event Type: </label>
+        <select id = "eventType" onchange="showFee()">
+            <option>Festival</option>
+            <option>Birthday</option>
+            <option>Anniversary</option>
+        </select><br>
+        <p id = "fee"></p>
+        <br>
+        <label>Feedback: </label>
+        <textarea id = "feedback" onkeyup="countCharacters()"></textarea><br>
+        <p>Characters: <span id = "count">0</span></p>    
+        <br>
+        <button type="button" onclick="showConfirmation()">Submit</button>
+        <output id = "output"></output>
+    </form>
+    <img src = "Event1.png" id = "eventImg" ondblclick="enlargeImg()"/>
+    <h3>Event Promo Video</h3>
+    <video id = "video" width="500" controls>
+        <source src = "Video.mp4" type="video/mp4">
+    </video>
+    <p id = "message"></p>
     <section id="contact"></section>
     <!-- Main -->
     <!-- Footer -->
@@ -139,11 +144,24 @@
         let feedback = document.getElementById("feedback").value;
         document.getElementById("count").innerHTML = feedback.length;
     }
+    let formSubmission = false;
     function showConfirmation(){
         document.getElementById("output").innerHTML = "Feedback submitted successfully";
+        formSubmission = true;
     }
     function enlargeImg(){
         document.getElementById("eventImg").style.width = "1000px";
+    }
+    const video = document.getElementById("video");
+        video.oncanplay = function(){
+            document.getElementById("message").textContent = "Video ready to play";
+    };
+
+    window.onbeforeunload = function(e){
+        if(!formSubmission){
+            e.preventDefault();
+            e.returnValue = "";
+        }
     }
 </script>
 </html>
